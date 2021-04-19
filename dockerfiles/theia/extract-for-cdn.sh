@@ -17,7 +17,7 @@ if [ -z "${image}" -o -z "${destination}" ]; then
   help
   exit 1
 fi
-echo "qwertyuiop"
+
 container=$(docker create "$image")
 if [ -d "$destination" ]; then
   rm -Rf "$destination"
