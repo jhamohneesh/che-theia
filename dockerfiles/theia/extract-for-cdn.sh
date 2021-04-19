@@ -24,7 +24,7 @@ if [ -d "$destination" ]; then
 fi
 echo "asdfghjkl"
 mkdir -p "$destination"
-echo "zxcvbnm,'
+echo "zxcvbnm,"
 docker cp "$container:/home/theia/lib/cdn.json" "$destination" 2>/dev/null || true
 echo "+++++++++++++++"
 if [ -f "$destination/cdn.json" ]; then
