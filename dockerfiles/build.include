@@ -220,7 +220,7 @@ build_image() {
   if ! dry_run; then
     echo "1234567890876543212345678987654321234567898"
     echo "${IMAGE_NAME}******************** ${BUILD_ARGS}**************************** ${DOCKER_BUILD_TARGET} "
-    cd "${DIR}" && pwd && docker buildx build --help  && docker buildx build --platform linux/amd64 linux/arm64 --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME}  .
+    cd "${DIR}" && pwd && docker buildx build --help  && docker buildx build --platform linux/arm64 --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME}  .
     rm ${DIR}/.Dockerfile
   fi
   
