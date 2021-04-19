@@ -39,7 +39,7 @@ jobs:
       - name: Docker Login      
         if: success()      
         run: |        
-          docker login  --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}          
+         cat ${{ secrets.DOCKER_PASSWORD }} | docker login --username odidev --password-stdin
       - name: Run Buildx (push image)      
         if: success()      
         run: |        
