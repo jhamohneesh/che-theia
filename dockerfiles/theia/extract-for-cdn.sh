@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 #
 # Copyright (c) 2019 Red Hat, Inc.
 # This program and the accompanying materials are made
@@ -37,10 +37,8 @@ if [ -f "$destination/cdn.json" ]; then
     echo "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     docker cp "$container:/home/theia/lib/$file" "$destination/$file"
     echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-    if [ "$file" == *.*.js ]; then
-      echo "$file"
+    if [ "$file" = *.*.js ]; then
       docker cp "$container:/home/theia/lib/$file.map" "$destination/$file.map" || true
-      echo "ccccccccccccccccccccccccccccccccccccccccccccc"
     fi
   done
 fi
