@@ -38,8 +38,7 @@ if [ -f "$destination/cdn.json" ]; then
     docker cp "$container:/home/theia/lib/$file" "$destination/$file"
     echo "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
     file $file
-    if [ "$file" == *.*.js ]
-    then
+    if [ "$file" == *.*.js ]; then
       echo "$file"
       docker cp "$container:/home/theia/lib/$file.map" "$destination/$file.map" || true
       echo "ccccccccccccccccccccccccccccccccccccccccccccc"
