@@ -31,7 +31,6 @@ echo "cccccccccccccccccccccccc+++++++++++++-----------------------------------"
 if [ ! -f "${THEIA_YEOMAN_PLUGIN}" ]; then
     curl -L -o ${THEIA_YEOMAN_PLUGIN} https://github.com/eclipse/theia-yeoman-plugin/releases/download/untagged-8a7963262e021dab8ae0/theia_yeoman_plugin.theia
 fi
-
 init --name:theia "$@"
 echo "cccccccccccccccccccccccc+++++++++++++********************************"
 if [ "${CDN_PREFIX:-}" != "" ]; then
