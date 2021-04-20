@@ -65,10 +65,10 @@ DOCKER_FILES_LOCATIONS=(
 )
 
 PUBLISH_IMAGES_LIST=(
-  eclipse/che-theia-dev
-  eclipse/che-theia
-  eclipse/che-theia-endpoint-runtime-binary
-  eclipse/che-theia-vsix-installer
+  odidev/che-theia-dev
+  odidev/che-theia
+  odidev/che-theia-endpoint-runtime-binary
+  odidev/che-theia-vsix-installer
 )
 
 getImages() {
@@ -97,7 +97,7 @@ buildImages() {
 }
 
 publishImages() {
-  REGISTRY="quay.io"
+  REGISTRY="odidev"
   for image in "${PUBLISH_IMAGES_LIST[@]}"
   do
     echo "Publishing ${image}:${IMAGE_TAG}..."
