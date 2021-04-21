@@ -218,7 +218,7 @@ build_image() {
   done
 
   if ! dry_run; then
-    if [ "$DOCKER_TARGET_PLATFORM" == "linux/arm64" ]; then            ]
+    if [ "$DOCKER_TARGET_PLATFORM" = "linux/arm64" ]; then            ]
       cd "${DIR}" && docker buildx build --load --platform linux/arm64 --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME} ${BUILD_ARGS} ${DOCKER_BUILD_TARGET} .
     else 
       cd "${DIR}" && docker build --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME} ${BUILD_ARGS} ${DOCKER_BUILD_TARGET} .
