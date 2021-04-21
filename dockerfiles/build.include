@@ -224,7 +224,7 @@ build_image() {
       cd "${DIR}" && docker build --cache-from ${IMAGE_NAME} -f ${DIR}/.Dockerfile -t ${IMAGE_NAME} ${BUILD_ARGS} ${DOCKER_BUILD_TARGET} .
     fi
     rm ${DIR}/.Dockerfile
-  
+  fi
   if [ $? -eq 0 ]; then
     printf "Build of ${BLUE}${IMAGE_NAME} ${GREEN}[OK]${NC}\n"
     if [ ! -z "${IMAGE_ALIASES}" ]; then
