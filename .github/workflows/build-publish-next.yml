@@ -17,8 +17,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    env: |
-      DOCKER_TARGET_PLATFORM: 
     steps:
     - uses: actions/checkout@v2
       name: Checkout che-theia source code
@@ -39,6 +37,7 @@ jobs:
       env:
         CDN_PREFIX: https://static.developers.redhat.com/che/theia_artifacts/
         MONACO_CDN_PREFIX: https://cdn.jsdelivr.net/npm/
+        DOCKER_TARGET_PLATFORM: linux/amd64
     - name: Set-up npmjs auth token
       run: printf "//registry.npmjs.org/:_authToken=${{ secrets.CHE_NPM_AUTH_TOKEN }}\n" >> ~/.npmrc
     - name: Publish packages to npmjs
