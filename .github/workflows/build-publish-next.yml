@@ -24,6 +24,10 @@ jobs:
       name: Configuring nodejs 12.x version
       with:
         node-version: '12.x'
+    - name: Set up Docker Buildx      
+      uses: crazy-max/ghaction-docker-buildx@v1      
+      with:        
+        version: latest    
     - name: Login to docker.io
       uses: docker/login-action@v1
       with:
