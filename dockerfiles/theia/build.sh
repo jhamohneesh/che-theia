@@ -55,11 +55,11 @@ if [[ -z "$DOCKER_BUILD_TARGET" ]]; then
     if [ "$DOCKER_TARGET_PLATFORM" == "linux/arm64" ]; then       
       docker buildx build --platform linux/arm64 --load  --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
 FROM ${IMAGE_NAME}
-      EOF
+EOF
    else 
       docker build --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
 FROM ${IMAGE_NAME}
-      EOF
+EOF
     fi
     docker tag "${IMAGE_NAME}-with-label" "${IMAGE_NAME}"
     "${base_dir}"/push-cdn-files-to-akamai.sh
