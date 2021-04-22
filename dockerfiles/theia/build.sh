@@ -54,11 +54,11 @@ if [[ -z "$DOCKER_BUILD_TARGET" ]]; then
     echo "Adding the CDN label..."
     if [ "$DOCKER_TARGET_PLATFORM" == "linux/arm64" ]; then       
       docker buildx build --platform linux/arm64 --load  --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
-      FROM ${IMAGE_NAME}
+FROM ${IMAGE_NAME}
       EOF
    else 
       docker build --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
-      FROM ${IMAGE_NAME}
+FROM ${IMAGE_NAME}
       EOF
     fi
     docker tag "${IMAGE_NAME}-with-label" "${IMAGE_NAME}"
