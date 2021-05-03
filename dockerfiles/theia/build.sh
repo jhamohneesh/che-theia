@@ -57,10 +57,10 @@ if [[ -z "$DOCKER_BUILD_TARGET" ]]; then
 FROM ${IMAGE_NAME}
 EOF
    else 
-      docker build --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
+      docker buildx build --platform linux/arm64,linux/amd64 --push  --label che-plugin.cdn.artifacts="$(echo ${LABEL_CONTENT} | sed 's/ //g')" -t "${IMAGE_NAME}-with-label" -<<EOF
 FROM ${IMAGE_NAME}
-EOF
-    fi
+EOF && docker pull ${IMAGE_NAME}-with-label 
+   fi
     docker tag "${IMAGE_NAME}-with-label" "${IMAGE_NAME}"
     "${base_dir}"/push-cdn-files-to-akamai.sh
   fi
