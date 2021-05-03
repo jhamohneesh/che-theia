@@ -115,8 +115,8 @@ publishImages() {
       fi
     else 
       echo "Publishing ${image}:${IMAGE_TAG}..."
-      docker tag "${image}:${IMAGE_TAG}" "${image}:${IMAGE_TAG}"
-      echo y | docker push "${image}:${IMAGE_TAG}"
+#      docker tag "${image}:${IMAGE_TAG}" "${image}:${IMAGE_TAG}"
+ #     echo y | docker push "${image}:${IMAGE_TAG}"
       if [[ -n "${THEIA_DOCKER_IMAGE_VERSION}" ]]; then
         echo "Publishing ${image}:12345656565"
         # docker tag "${image}:${IMAGE_TAG}" "${REGISTRY}/${image}:${THEIA_DOCKER_IMAGE_VERSION}"
